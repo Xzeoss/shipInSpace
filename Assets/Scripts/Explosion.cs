@@ -8,6 +8,7 @@ public class Explosion: MonoBehaviour {
 
 	void Start(){
 
+		//spawns explosion particle system and destroys it 1 sec later
 		Destroy (Instantiate (explPart, transform.position, transform.rotation), 1f);
 
 	}
@@ -17,7 +18,7 @@ public class Explosion: MonoBehaviour {
 		if (col.gameObject.tag == "Block") {
 
 			Block bl = col.gameObject.GetComponent<Block> ();
-			bl.DeleteBlock ();
+			bl.DeleteBlock ();	//calls deleteBlock logic for each block destroyed
 
 		}
 

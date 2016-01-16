@@ -6,7 +6,6 @@ public class Grenade : MonoBehaviour {
 	GameObject ship;
 	float moveSpeed;
 	float rotSpeed;
-	GameObject colObj;
 	[SerializeField]
 	GameObject explosion;
 
@@ -25,19 +24,18 @@ public class Grenade : MonoBehaviour {
 		pos.x += moveSpeed * Time.deltaTime;
 		transform.position = pos;
 
-		transform.Rotate (Vector3.back * rotSpeed);
+		transform.Rotate (Vector3.back * rotSpeed);	//spins object
 
-		if (pos.x > 60)
+		if (pos.x > 60)	//deletes object once offscreen
 			Destroy (gameObject);
 	
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
 
-		colObj = col.gameObject;
+		if(col.gameObject.tag == "Block"){
 
-		if(colObj.tag == "Block"){
-			
+			//spawns explosion game object
 			explosion = (GameObject)Instantiate (explosion, transform.position, transform.rotation);
 			Destroy (gameObject);
 			Destroy (explosion, 0.05f);
