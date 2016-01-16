@@ -1,0 +1,21 @@
+TODO LIST
+---------
+
+- start menu
+	- ship cursor, shoot lasers to select
+-fix screen resolution
+-setup levels
+	-modify wave generator to read level char arrays
+-upgrade block
+	- build unique upgrade blocks
+		-ammo block
+		-electric sheild block
+		-multi row gun block
+		-colour destroy block
+-change score to credit
+-post-level upgrade screen
+	-buy health upgrades, ammo, lives
+	-weapon dmg, choose wep activation
+-general aesthetics
+	-background, ship skin (edit?)
+	-stars, etc.
