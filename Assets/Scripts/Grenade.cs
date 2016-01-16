@@ -4,7 +4,6 @@ using System.Collections;
 public class Grenade : MonoBehaviour {
 
 	GameObject ship;
-	[SerializeField]
 	float moveSpeed;
 	float rotSpeed;
 	GameObject colObj;
@@ -15,6 +14,7 @@ public class Grenade : MonoBehaviour {
 	void Start () {
 
 		rotSpeed = 5;
+		moveSpeed = 50;
 
 	}
 	
@@ -28,7 +28,7 @@ public class Grenade : MonoBehaviour {
 		transform.Rotate (Vector3.back * rotSpeed);
 
 		if (pos.x > 60)
-			GM.DeleteObject (gameObject);
+			Destroy (gameObject);
 	
 	}
 
@@ -37,7 +37,7 @@ public class Grenade : MonoBehaviour {
 		colObj = col.gameObject;
 
 		if(colObj.tag == "Block"){
-
+			
 			explosion = (GameObject)Instantiate (explosion, transform.position, transform.rotation);
 			Destroy (gameObject);
 			Destroy (explosion, 0.05f);

@@ -8,6 +8,10 @@ public class ShipController : MonoBehaviour
     Transform lazer;
 	[SerializeField]
 	Transform grenade;
+	[SerializeField]
+	Transform columnLaser;
+	[SerializeField]
+	Transform[] plasmaLaser;
     Vector3 lazerPos;
     bool top;
 
@@ -34,6 +38,10 @@ public class ShipController : MonoBehaviour
             shootLaser();
 		if (Input.GetKeyDown (KeyCode.G))
 			shootGrenade ();
+		if (Input.GetKeyDown (KeyCode.C))
+			shootColumn ();
+		if (Input.GetKeyDown (KeyCode.P))
+			shootPlasma ();
 
     }
 
@@ -58,9 +66,25 @@ public class ShipController : MonoBehaviour
 
     }
 
+	void shootPlasma(){
+
+		Vector3 plPos1 = new Vector3 (transform.position.x - 2.2f, transform.position.y + 0.6f, transform.position.z);
+		Vector3 plPos2 = new Vector3 (transform.position.x - 2.2f, transform.position.y - 0.6f, transform.position.z);
+
+		Instantiate (plasmaLaser [0], plPos1, transform.rotation);
+		Instantiate (plasmaLaser [1], plPos2, transform.rotation);
+
+	}
+
 	void shootGrenade(){
 
 		Instantiate(grenade, transform.position, transform.rotation); 
+
+	}
+
+	void shootColumn(){
+
+		Instantiate (columnLaser, transform.position, transform.rotation);
 
 	}
 

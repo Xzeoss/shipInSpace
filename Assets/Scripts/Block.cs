@@ -30,7 +30,7 @@ public class Block : MonoBehaviour {
 	}
 
 	//handles logic for block destroy
-	void DeleteBlock(){
+	public void DeleteBlock(){
 
 		switch(label){
 
@@ -63,7 +63,7 @@ public class Block : MonoBehaviour {
 			break;
 		}
 
-		GM.DeleteObject (gameObject);
+		Destroy (gameObject);
 
 	}
 }

@@ -3,12 +3,8 @@ using System.Collections;
 
 public class Lazer : MonoBehaviour {
 
-	Vector3 direction;
-	Vector3 destination;
 	float moveSpeed;
 	public float damage;
-	GameObject ship;
-	GameObject colObj; //collided object
 
 	// Use this for initialization
 	void Start () {
@@ -23,22 +19,20 @@ public class Lazer : MonoBehaviour {
 		transform.position = pos;
 
 		if (transform.position.x > 60)
-			GM.DeleteObject (gameObject);
+			Destroy (gameObject);
 
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
 
-		colObj = col.gameObject;
+		if(col.gameObject.tag == "Block"){
 
-		if(colObj.tag == "Block"){
-
-			Block bl = colObj.GetComponent<Block> ();
+			Block bl = col.gameObject.GetComponent<Block> ();
 			bl.Damage (damage);
 
 		}
 
-		GM.DeleteObject (gameObject);
+		Destroy (gameObject);
 
 	}
 

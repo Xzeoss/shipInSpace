@@ -14,7 +14,12 @@ public class Explosion: MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 
-		Destroy (col.gameObject);
+		if (col.gameObject.tag == "Block") {
+
+			Block bl = col.gameObject.GetComponent<Block> ();
+			bl.DeleteBlock ();
+
+		}
 
 	}
 }

@@ -63,13 +63,6 @@ public class GM : MonoBehaviour {
 
 	}
 
-	//handles deleting objects
-	public static void DeleteObject(GameObject go){
-
-		Destroy (go);
-
-	}
-
 	//generates random block wave
 	void waveGenerator(){
 		
@@ -136,11 +129,11 @@ public class GM : MonoBehaviour {
 	}
 
 	//deletes current grid of blocks
-	static void deleteArr(GameObject[] arr){
+	void deleteArr(GameObject[] arr){
 
 		for(int i = 0; i < arr.Length; i++){
 
-			DeleteObject (arr[i]);
+			Destroy (arr[i]);
 
 		}
 
