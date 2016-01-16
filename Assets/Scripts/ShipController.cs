@@ -92,7 +92,7 @@ public class ShipController : MonoBehaviour
 	}
 		
 	void OnCollisionEnter2D(Collision2D col){
-		
+
 		if (col.gameObject.tag == "Block") {
 
 			GM.updateHealth (-10);	//ship takes damage

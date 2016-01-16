@@ -34,30 +34,34 @@ public class Block : MonoBehaviour {
 
 		switch(label){
 
-		case 'G':	//greenBlock destroy
-			GM.updateScore (10);
+		case 'A':	//ammoBlock destroy
 			break;
 		case 'B':	//blueBlock destroy
 			GM.updateScore (20);
 			break;
-		case 'Y':	//yellowBlock destroy
-			GM.updateScore (30);
+		case 'C':	//colourBlock destroy
 			break;
-		case 'O':	//orangeBlock destroy
-			GM.updateScore (40);
+		case 'E':	//electricShield destroy
 			break;
-		case 'R':	//redBlock destroy
-			GM.updateScore (50);
+		case 'G':	//greenBlock destroy
+			GM.updateScore (10);
 			break;
 		case 'H':	//healthBlock destroy
 			GM.updateHealth (30);
 			break;
+		case 'M':	//multiRow destroy
+			break;
+		case 'O':	//orangeBlock destroy
+			GM.updateScore (40);
+			break;
 		case 'P':	//pointsBlock destroy
 			GM.updateScore (50);
 			break;
-		case 'U':	//upgradeBlock destroy
+		case 'R':	//redBlock destroy
+			GM.updateScore (50);
 			break;
-		case 'W':	//weaponBlock destroy
+		case 'Y':	//yellowBlock destroy
+			GM.updateScore (30);
 			break;
 		default:	//unlabelled block
 			break;
