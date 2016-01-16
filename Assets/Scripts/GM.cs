@@ -28,6 +28,7 @@ public class GM : MonoBehaviour {
 		healthBar = GameObject.Find ("HealthBar").transform;
 		scoreText = GameObject.Find ("Score").GetComponent<Text>();
 		livesText = GameObject.Find ("Lives").GetComponent<Text> ();
+		Physics2D.IgnoreLayerCollision (9, 9, true); //ignores collisions between player layer
 		updateScore (0);
 		waveGenerator ();
 
@@ -135,7 +136,7 @@ public class GM : MonoBehaviour {
 	}
 
 	//deletes current grid of blocks
-	void deleteArr(GameObject[] arr){
+	static void deleteArr(GameObject[] arr){
 
 		for(int i = 0; i < arr.Length; i++){
 

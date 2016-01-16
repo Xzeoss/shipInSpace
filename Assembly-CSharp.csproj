@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DF367D5A-6241-ADF4-567F-8DED4EB2ACF4}</ProjectGuid>
+    <ProjectGuid>{CEF03AA5-CB19-AA32-F4D5-F2D493036A36}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,8 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Block.cs" />
-     <Compile Include="Assets\Scripts\BlockMove.cs" />
+     <Compile Include="Assets\Scripts\ColumnLaser.cs" />
+     <Compile Include="Assets\Scripts\Explosion.cs" />
      <Compile Include="Assets\Scripts\GM.cs" />
+     <Compile Include="Assets\Scripts\Grenade.cs" />
      <Compile Include="Assets\Scripts\Lazer.cs" />
      <Compile Include="Assets\Scripts\LevelMove.cs" />
      <Compile Include="Assets\Scripts\ShipController.cs" />

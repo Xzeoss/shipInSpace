@@ -18,24 +18,8 @@ public class Block : MonoBehaviour {
 
 	}
 
-	//handles collision physics
-	void OnCollisionEnter2D(Collision2D col){
-
-		if(col.gameObject.tag == "Weapon"){
-
-			Lazer laze = col.gameObject.GetComponent<Lazer> ();
-
-			if(laze != null){
-
-				Damage (laze.damage);
-				GM.DeleteObject (col.gameObject);
-          
-			}
-		}
-	}
-
 	//handles block damage taken
-	void Damage(float damage){
+	public void Damage(float damage){
 
 		health -= damage;
 		if (health < 1) {

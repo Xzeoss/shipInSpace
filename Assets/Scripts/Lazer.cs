@@ -3,16 +3,16 @@ using System.Collections;
 
 public class Lazer : MonoBehaviour {
 
-	private Vector3 direction;
-	private Vector3 destination;
-	public float moveSpeed;
+	Vector3 direction;
+	Vector3 destination;
+	float moveSpeed;
 	public float damage;
 	GameObject ship;
+	GameObject colObj; //collided object
 
 	// Use this for initialization
 	void Start () {
-		ship = GameObject.Find ("Ship");
-		Physics2D.IgnoreCollision(ship.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+		moveSpeed = 100f;
 	}
 
 	// Update is called once per frame
@@ -22,11 +22,23 @@ public class Lazer : MonoBehaviour {
 		pos.x += moveSpeed * Time.deltaTime;
 		transform.position = pos;
 
-		if (transform.position.x > 60) {
-			
+		if (transform.position.x > 60)
 			GM.DeleteObject (gameObject);
-		
+
+	}
+
+	void OnCollisionEnter2D(Collision2D col){
+
+		colObj = col.gameObject;
+
+		if(colObj.tag == "Block"){
+
+			Block bl = colObj.GetComponent<Block> ();
+			bl.Damage (damage);
+
 		}
+
+		GM.DeleteObject (gameObject);
 
 	}
 

@@ -7,7 +7,7 @@ public class ShipController : MonoBehaviour
     [SerializeField]
     Transform lazer;
 	[SerializeField]
-	Transform healthBar;
+	Transform grenade;
     Vector3 lazerPos;
     bool top;
 
@@ -26,31 +26,18 @@ public class ShipController : MonoBehaviour
 
         //moves ship up 8 pixels, or "1 row"
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (transform.position.y < 15))
-        {
-
             transform.position = new Vector3(transform.position.x, transform.position.y + 8, 0);
-
-        }
-
         //moves ship down 8 pixels, or "1 row"
-
-        if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && (transform.position.y > -15))
-        {
-
-            transform.position = new Vector3(transform.position.x, transform.position.y - 8, 0);
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            Shoot();
-
-        }
+		if ((Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) && (transform.position.y > -15))
+			transform.position = new Vector3 (transform.position.x, transform.position.y - 8, 0);
+        if (Input.GetKeyDown(KeyCode.Space)) //shoots laser
+            shootLaser();
+		if (Input.GetKeyDown (KeyCode.G))
+			shootGrenade ();
 
     }
 
-    void Shoot(){
+    void shootLaser(){
 
         if (top)
         { //fire top gun
@@ -71,30 +58,17 @@ public class ShipController : MonoBehaviour
 
     }
 
+	void shootGrenade(){
+
+		Instantiate(grenade, transform.position, transform.rotation); 
+
+	}
+
 	void OnCollisionEnter2D(Collision2D col){
 		
 		if (col.gameObject.tag == "Block") {
 
 			GM.updateHealth (-10);
-
-			//dec health; update bar; check if health == 0, reset health to maxhealth, reset healthbar
-			
-//			GM.health -= 10;
-//			healthBar.transform.localScale = new Vector3 ((float)GM.health / GM.MAXHEALTH, 1, 1);
-//			if (GM.health < 1) {
-//				
-//				GM.lives -= 1;
-//				GM.health = GM.MAXHEALTH;
-//				healthBar.transform.localScale = new Vector3 (1, 1, 1);
-//
-//			}
-
-//			if(GM.lives < 1){
-//
-//				Debug.Log("Game Over!");
-//				GM.lives = 3;
-//
-//			}
 
         }
 
