@@ -12,10 +12,12 @@ public class GM : MonoBehaviour {
 	static Text scoreText; 
     static Text livesText; 
 	static Transform healthBar;
+	static GameObject electricShield;
 	[SerializeField]
 	GameObject[] prefabArr;
 	GameObject[] blockArr;
 	GameObject curBlock;
+	GameObject ship;
 
 	// Use this for initialization
 	void Start(){
@@ -28,6 +30,9 @@ public class GM : MonoBehaviour {
 		healthBar = GameObject.Find ("HealthBar").transform;
 		scoreText = GameObject.Find ("Score").GetComponent<Text>();
 		livesText = GameObject.Find ("Lives").GetComponent<Text> ();
+		ship = GameObject.Find ("Ship");
+		electricShield = GameObject.Find ("ElectricShield");
+		electricShield.SetActive (false);
 		Physics2D.IgnoreLayerCollision (9, 9, true); //ignores collisions between player layer
 		updateScore (0);
 		waveGenerator ();
@@ -174,6 +179,16 @@ public class GM : MonoBehaviour {
 			score = 0;
 
 		scoreText.text = "Score " + score;
+
+	}
+
+	public static void upgradeBlock(char label){
+
+		if(label == 'E'){
+
+			electricShield.SetActive (true);
+
+		}
 
 	}
 }

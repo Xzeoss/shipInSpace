@@ -8,6 +8,7 @@ public class Block : MonoBehaviour {
 	float health;
 	public char label;
 	float pph = 10f;
+	GameObject electricShield;
 
 	//keeps the block at the same
 	void FixedUpdate(){
@@ -42,6 +43,7 @@ public class Block : MonoBehaviour {
 		case 'C':	//colourBlock destroy
 			break;
 		case 'E':	//electricShield destroy
+			GM.upgradeBlock(label);
 			break;
 		case 'G':	//greenBlock destroy
 			GM.updateScore (10);
@@ -70,4 +72,5 @@ public class Block : MonoBehaviour {
 		Destroy (gameObject);
 
 	}
+		
 }
