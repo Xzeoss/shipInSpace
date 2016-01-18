@@ -8,11 +8,11 @@ public class GM : MonoBehaviour {
 	static float score;	//keeps the totalscore throughout game
     public static int lives; 
 	public static int health;	
-	public static int MAXHEALTH = 100; 
+	public static int MAXHEALTH = 100;
+	public static bool shipOn;
 	static Text scoreText; 
     static Text livesText; 
 	static Transform healthBar;
-	static GameObject electricShield;
 	[SerializeField]
 	GameObject[] prefabArr;
 	GameObject[] blockArr;
@@ -31,9 +31,9 @@ public class GM : MonoBehaviour {
 		scoreText = GameObject.Find ("Score").GetComponent<Text>();
 		livesText = GameObject.Find ("Lives").GetComponent<Text> ();
 		ship = GameObject.Find ("Ship");
-		electricShield = GameObject.Find ("ElectricShield");
-		electricShield.SetActive (false);
-		Physics2D.IgnoreLayerCollision (9, 9, true); //ignores collisions between player layer
+		shipOn = false;
+		Physics2D.IgnoreLayerCollision (9, 10, true); //ignores collisions between player/player effects
+		Physics2D.IgnoreLayerCollision (10, 10, true); //ignores collisions between player effects 
 		updateScore (0);
 		waveGenerator ();
 
@@ -120,14 +120,14 @@ public class GM : MonoBehaviour {
 			return prefabArr [2]; //returns yellowBlock (20%)
 		else if (rand < 0.85f)
 			return prefabArr [3]; //returns orangeBlock (15%)
-		else if (rand < 0.95f)
-			return prefabArr [4]; //returns redBlock (10%)
-		else if (rand < .965f)
-			return prefabArr [5]; //returns healthBlock (1.5%)
-		else if (rand < .98f)
+		else if (rand < 0.9f)
+			return prefabArr [4]; //returns redBlock (5%)
+		else if (rand < .925f)
+			return prefabArr [5]; //returns healthBlock (2.5%)
+		else if (rand < .95f)
 			return prefabArr [6]; //returns pointsBlock (1.5%)
-		else if (rand < .99f)
-			return prefabArr [7]; //returns upgradeBlock (1%)
+		else if (rand < .975f)
+			return prefabArr [7]; //returns uelectricShieldBlock (1%)
 		else
 			return prefabArr [8]; //returns weaponBlock (1%)
 		
@@ -181,14 +181,5 @@ public class GM : MonoBehaviour {
 		scoreText.text = "Score " + score;
 
 	}
-
-	public static void upgradeBlock(char label){
-
-		if(label == 'E'){
-
-			electricShield.SetActive (true);
-
-		}
-
-	}
+		
 }

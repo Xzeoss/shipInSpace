@@ -8,7 +8,10 @@ public class Block : MonoBehaviour {
 	float health;
 	public char label;
 	float pph = 10f;
+	[SerializeField]
+	GameObject[] upgrades;
 	GameObject electricShield;
+	GameObject ship;
 
 	//keeps the block at the same
 	void FixedUpdate(){
@@ -43,7 +46,7 @@ public class Block : MonoBehaviour {
 		case 'C':	//colourBlock destroy
 			break;
 		case 'E':	//electricShield destroy
-			GM.upgradeBlock(label);
+			upgradeBlock();
 			break;
 		case 'G':	//greenBlock destroy
 			GM.updateScore (10);
@@ -71,6 +74,17 @@ public class Block : MonoBehaviour {
 
 		Destroy (gameObject);
 
+	}
+
+	void upgradeBlock(){
+
+		if (label == 'E' && !GM.shipOn) {
+			ship = GameObject.Find ("Ship");
+			GameObject go = (GameObject) Instantiate (upgrades [0], ship.transform.position, ship.transform.rotation);
+			go.transform.parent = ship.transform;
+			GM.shipOn = true;
+			Destroy (go, 5f);
+		} 
 	}
 		
 }
