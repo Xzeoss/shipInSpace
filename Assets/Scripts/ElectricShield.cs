@@ -11,6 +11,8 @@ public class ElectricShield : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col){
 
+		print ("here"); 
+
 		if(col.gameObject.tag == "Block"){
 
 			Block bl = col.gameObject.GetComponent<Block> ();
