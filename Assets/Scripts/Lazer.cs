@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Lazer : MonoBehaviour {
 
@@ -28,8 +29,17 @@ public class Lazer : MonoBehaviour {
 
 		if(col.gameObject.tag == "Block"){	//calls block method to handle block destroy
 
-			Block bl = col.gameObject.GetComponent<Block> ();
-			bl.Damage (damage);
+			try{
+
+				Block bl = col.gameObject.GetComponent<Block> ();
+				bl.Damage (damage);
+
+			}catch(NullReferenceException e){
+
+				Asteroid ast = col.gameObject.GetComponent<Asteroid> ();
+				ast.Damage (damage);
+
+			}
 
 		}
 

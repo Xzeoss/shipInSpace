@@ -18,7 +18,7 @@ public class Grenade : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		Vector3 pos = transform.position;
 		pos.x += moveSpeed * Time.deltaTime;

@@ -18,6 +18,8 @@ public class GM : MonoBehaviour {
 	GameObject[] blockArr;
 	GameObject curBlock;
 	GameObject ship;
+	[SerializeField]
+	GameObject asteroid;
 
 	// Use this for initialization
 	void Start(){
@@ -35,7 +37,7 @@ public class GM : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision (9, 10, true); //ignores collisions between player/player effects
 		Physics2D.IgnoreLayerCollision (10, 10, true); //ignores collisions between player effects 
 		updateScore (0);
-		waveGenerator ();
+		spawnAsteroid ();
 
 	}
 
@@ -49,7 +51,7 @@ public class GM : MonoBehaviour {
 				if(blockArr [gridSize - 1].transform.position.x < -60){
 
 					deleteArr (blockArr);
-					waveGenerator ();
+					//waveGenerator ();
 
 				}
 
@@ -58,13 +60,26 @@ public class GM : MonoBehaviour {
 				if(blockArr[2].transform.position.x < -60){
 
 					deleteArr (blockArr);
-					waveGenerator ();
+					//waveGenerator ();
 
 				}
 
 			}
 				
 		}
+
+	}
+
+	int lastYPos;
+
+	void spawnAsteroid(){
+
+		int yPos = Random.Range((int) 0, (int) 5) - 2;
+		while (yPos == lastYPos)
+			yPos = Random.Range ((int)0, (int)5) - 2;
+		Instantiate (asteroid, new Vector3(60, yPos * 8, 0), Quaternion.identity);
+		lastYPos = yPos;
+		Invoke ("spawnAsteroid", 0.3f);
 
 	}
 
