@@ -8,7 +8,7 @@ public class GM : MonoBehaviour {
 	static float score;	//keeps the totalscore throughout game
     public static int lives; 
 	public static int health;	
-	public static int MAXHEALTH = 100;
+	public static int MAXHEALTH = 500;
 	public static bool shipOn;
 	static Text scoreText; 
     static Text livesText; 
@@ -155,7 +155,7 @@ public class GM : MonoBehaviour {
 			health = MAXHEALTH;
 		}
 
-		healthBar.localScale = new Vector3((float)health / MAXHEALTH, 1, 1); //changes healthBar size
+		healthBar.localScale = new Vector3((float)health / MAXHEALTH * 12, 1, 1); //changes healthBar size
 
 	}
 
