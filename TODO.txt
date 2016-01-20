@@ -19,3 +19,4 @@ TODO LIST
 -general aesthetics
 	-background, ship skin (edit?)
 	-stars, etc.
+-change to asteroid field
