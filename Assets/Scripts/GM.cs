@@ -6,6 +6,7 @@ public class GM : MonoBehaviour {
 
 	int gridSize;	//sets the amount of blocks generated per wave
 	static float score;	//keeps the totalscore throughout game
+	static float scaleX;
     public static int lives; 
 	public static int health;	
 	public static int MAXHEALTH = 500;
@@ -36,35 +37,12 @@ public class GM : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision (10, 10, true); //ignores collisions between player effects 
 		updateScore (0);
 		spawnAsteroid ();
+		scaleX = healthBar.transform.localScale.x; //takes full size of healthbar
 
 	}
 
 	// Update is called once per frame
 	void Update(){
-
-		if((blockArr[gridSize - 1] != null) || (blockArr[2] != null)){ //object has been instantiated
-
-			try { //check for bottom row instance
-
-				if(blockArr [gridSize - 1].transform.position.x < -60){
-
-					deleteArr (blockArr);
-					//waveGenerator ();
-
-				}
-
-			}catch (MissingReferenceException e){ //player destroyed bot row, test top row
-
-				if(blockArr[2].transform.position.x < -60){
-
-					deleteArr (blockArr);
-					//waveGenerator ();
-
-				}
-
-			}
-				
-		}
 
 	}
 
@@ -172,7 +150,7 @@ public class GM : MonoBehaviour {
 			health = MAXHEALTH;
 		}
 
-		healthBar.localScale = new Vector3((float)health / MAXHEALTH * 12, 1, 1); //changes healthBar size
+		healthBar.localScale = new Vector3((float)health / MAXHEALTH * scaleX, 1, 1); //changes healthBar size
 
 	}
 
@@ -195,7 +173,7 @@ public class GM : MonoBehaviour {
 		if (score < 0)
 			score = 0;
 
-		scoreText.text = "Score " + score;
+		scoreText.text = score.ToString ();
 
 	}
 		
