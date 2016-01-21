@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Asteroid : MonoBehaviour {
 
-	public GameObject[] upgradeDrops;
+	public GameObject upgradeDrop;
 	float moveSpeed;
 	float health;
 	float pph;
@@ -49,6 +49,9 @@ public class Asteroid : MonoBehaviour {
 			case 'E':
 				electricDrop ();
 				break;
+			case 'H':
+				healthDrop ();
+				break;
 			case 'N':
 				break;
 			default:
@@ -69,7 +72,13 @@ public class Asteroid : MonoBehaviour {
 
 	void electricDrop(){
 
-		Instantiate (upgradeDrops[0], transform.position, transform.rotation);
+		Instantiate (upgradeDrop, transform.position, transform.rotation);
+
+	}
+
+	void healthDrop(){
+
+		GM.updateHealth (10);
 
 	}
 }

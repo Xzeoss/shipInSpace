@@ -56,6 +56,8 @@ public class GM : MonoBehaviour {
 			yPos = Random.Range ((int)0, (int)5) - 2;
 		if (asteroidRand > .95)
 			Instantiate (asteroid [1], new Vector3 (54, yPos * 8, 0), Quaternion.identity);
+		else if (asteroidRand > .85)
+			Instantiate (asteroid [2], new Vector3 (54, yPos * 8, 0), Quaternion.identity); 
 		else 
 			Instantiate (asteroid[0], new Vector3(54, yPos * 8, 0), Quaternion.identity);
 		lastYPos = yPos;
