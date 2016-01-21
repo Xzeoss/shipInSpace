@@ -1,9 +1,10 @@
 TODO LIST
 ---------
 
-- start menu
-	- ship cursor, shoot lasers to select
+-start menu
+	-ship cursor, shoot lasers to select
 -fix screen resolution
+-prioritize player rows to encourage movement
 -upgrade block
 	- build unique upgrade blocks
 		-ammo block
