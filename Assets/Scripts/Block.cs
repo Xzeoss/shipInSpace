@@ -7,7 +7,6 @@ public class Block : MonoBehaviour {
 	[SerializeField]
 	float health;
 	public char label;
-	float pph = 10f;
 	[SerializeField]
 	GameObject[] upgrades;
 	GameObject electricShield;

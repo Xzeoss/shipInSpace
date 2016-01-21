@@ -17,9 +17,8 @@ public class GM : MonoBehaviour {
 	GameObject[] prefabArr;
 	GameObject[] blockArr;
 	GameObject curBlock;
-	GameObject ship;
 	[SerializeField]
-	GameObject asteroid;
+	GameObject[] asteroid;
 
 	// Use this for initialization
 	void Start(){
@@ -32,7 +31,6 @@ public class GM : MonoBehaviour {
 		healthBar = GameObject.Find ("HealthBar").transform;
 		scoreText = GameObject.Find ("Score").GetComponent<Text>();
 		livesText = GameObject.Find ("Lives").GetComponent<Text> ();
-		ship = GameObject.Find ("Ship");
 		shipOn = false;
 		Physics2D.IgnoreLayerCollision (9, 10, true); //ignores collisions between player/player effects
 		Physics2D.IgnoreLayerCollision (10, 10, true); //ignores collisions between player effects 
@@ -75,9 +73,13 @@ public class GM : MonoBehaviour {
 	void spawnAsteroid(){
 
 		int yPos = Random.Range((int) 0, (int) 5) - 2;
+		float asteroidRand = Random.Range (0.0f, 1.0f);
 		while (yPos == lastYPos)
 			yPos = Random.Range ((int)0, (int)5) - 2;
-		Instantiate (asteroid, new Vector3(60, yPos * 8, 0), Quaternion.identity);
+		if (asteroidRand > .95)
+			Instantiate (asteroid [1], new Vector3 (54, yPos * 8, 0), Quaternion.identity);
+		else 
+			Instantiate (asteroid[0], new Vector3(54, yPos * 8, 0), Quaternion.identity);
 		lastYPos = yPos;
 		Invoke ("spawnAsteroid", 0.3f);
 

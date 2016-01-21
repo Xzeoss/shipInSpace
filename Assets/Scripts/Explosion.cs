@@ -17,7 +17,7 @@ public class Explosion: MonoBehaviour {
 
 		if (col.gameObject.tag == "Block") {
 
-			Block bl = col.gameObject.GetComponent<Block> ();
+			Asteroid bl = col.gameObject.GetComponent<Asteroid> ();
 			bl.DeleteBlock ();	//calls deleteBlock logic for each block destroyed
 
 		}

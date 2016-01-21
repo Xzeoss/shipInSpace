@@ -50,14 +50,14 @@ public class ShipController : MonoBehaviour
         if (top)
         { //fire top gun
 
-            lazerPos = new Vector3(transform.position.x - 2.2f, transform.position.y + 0.6f, transform.position.z);
+            lazerPos = new Vector3(transform.position.x + 3f, transform.position.y + 3.1f, transform.position.z);
             top = false;
 
         }
         else //fire bottom gun
         {
 
-            lazerPos = new Vector3(transform.position.x - 2.2f, transform.position.y - 0.6f, transform.position.z);
+            lazerPos = new Vector3(transform.position.x + 3f, transform.position.y - 3.1f, transform.position.z);
             top = true;
 
         }

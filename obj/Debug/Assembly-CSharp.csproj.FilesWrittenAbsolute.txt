@@ -11,3 +11,7 @@
 /Users/Tesla/Documents/shipInSpace/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Tesla/Documents/shipInSpace/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Tesla/Documents/shipInSpace/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/Tesla/Documents/shipInSpace/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/Tesla/Documents/shipInSpace/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/Tesla/Documents/shipInSpace/obj/Debug/Assembly-CSharp.dll
+/Users/Tesla/Documents/shipInSpace/obj/Debug/Assembly-CSharp.dll.mdb

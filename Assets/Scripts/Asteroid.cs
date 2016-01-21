@@ -3,16 +3,18 @@ using System.Collections;
 
 public class Asteroid : MonoBehaviour {
 
+	public GameObject[] upgradeDrops;
 	float moveSpeed;
 	float health;
 	float pph;
 	float rotSpeed;
+	public char label;
 
 	// Use this for initialization
 	void Start () {
 	
 		moveSpeed = 50;
-		rotSpeed = Random.Range(2, 5);
+		rotSpeed = Random.Range(2f, 5f);
 		health = Random.Range((int) 1, (int) 6) * 10; //give random range 10 - 30
 		pph = 10;
 
@@ -42,8 +44,32 @@ public class Asteroid : MonoBehaviour {
 		GM.updateScore (pph);
 		if (health < 1) {
 
+			switch(label){
+
+			case 'E':
+				electricDrop ();
+				break;
+			case 'N':
+				break;
+			default:
+				break;
+
+			}
+
 			Destroy (gameObject);
 
 		}
+	}
+
+	public void DeleteBlock(){
+
+		Destroy (gameObject);
+
+	}
+
+	void electricDrop(){
+
+		Instantiate (upgradeDrops[0], transform.position, transform.rotation);
+
 	}
 }
