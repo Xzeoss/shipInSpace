@@ -55,11 +55,11 @@ public class GM : MonoBehaviour {
 		while (yPos == lastYPos)
 			yPos = Random.Range ((int)0, (int)5) - 2;
 		if (asteroidRand > .95)
-			Instantiate (asteroid [1], new Vector3 (54, yPos * 8, 0), Quaternion.identity);
+			Instantiate (asteroid [1], new Vector3 (40, yPos * 8, 0), Quaternion.identity);
 		else if (asteroidRand > .85)
-			Instantiate (asteroid [2], new Vector3 (54, yPos * 8, 0), Quaternion.identity); 
+			Instantiate (asteroid [2], new Vector3 (40, yPos * 8, 0), Quaternion.identity); 
 		else 
-			Instantiate (asteroid[0], new Vector3(54, yPos * 8, 0), Quaternion.identity);
+			Instantiate (asteroid[0], new Vector3(40, yPos * 8, 0), Quaternion.identity);
 		lastYPos = yPos;
 		Invoke ("spawnAsteroid", 0.3f);
 
