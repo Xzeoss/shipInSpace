@@ -29,17 +29,8 @@ public class Lazer : MonoBehaviour {
 
 		if(col.gameObject.tag == "Block"){	//calls block method to handle block destroy
 
-			try{
-
-				Block bl = col.gameObject.GetComponent<Block> ();
-				bl.Damage (damage);
-
-			}catch(NullReferenceException e){
-
-				Asteroid ast = col.gameObject.GetComponent<Asteroid> ();
-				ast.Damage (damage);
-
-			}
+			Asteroid ast = col.gameObject.GetComponent<Asteroid> ();
+			ast.Damage (damage);
 
 		}
 

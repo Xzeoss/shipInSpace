@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{0EA1936C-9872-112C-2976-F36E05682F5F}") = "shipInSpace", "Assembly-CSharp.csproj", "{CEF03AA5-CB19-AA32-F4D5-F2D493036A36}"
 EndProject
-Project("{0EA1936C-9872-112C-2976-F36E05682F5F}") = "shipInSpace", "Assembly-UnityScript.unityproj", "{FF828D97-C5FF-181F-3052-2501F78276BE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{CEF03AA5-CB19-AA32-F4D5-F2D493036A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEF03AA5-CB19-AA32-F4D5-F2D493036A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEF03AA5-CB19-AA32-F4D5-F2D493036A36}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF828D97-C5FF-181F-3052-2501F78276BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF828D97-C5FF-181F-3052-2501F78276BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF828D97-C5FF-181F-3052-2501F78276BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF828D97-C5FF-181F-3052-2501F78276BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,10 +5,10 @@ TODO LIST
 	-ship cursor, shoot lasers to select
 -fix screen resolution
 -prioritize player rows to encourage movement
+-build function for wave spawns
 -upgrade block
 	- build unique upgrade blocks
 		-ammo block
-		-health block
 -post-level upgrade screen
 	-buy health upgrades, ammo, lives
 	-weapon dmg, choose wep activation
